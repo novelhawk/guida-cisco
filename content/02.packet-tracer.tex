@@ -22,7 +22,7 @@ Il menù File permette di:
     \item creare un nuovo file partendo da zero;
     \item aprire un file già esistente;
     \item aprire uno degli esempi già forniti inclusi in Cisco Packet Tracer;
-    \item salvare sul file corrente;
+    \item salvare le modifiche sul file corrente;
     \item salvare una copia in formato .pkt, .pkz o .imscc;
     \item stampare il progetto seconda una delle rappresentazioni disponibili;
     \item visualizzare i file aperti recentemente;
@@ -41,7 +41,7 @@ Il menù Edit permette di:
     \item copiare dal progetto dei dispositivi di rete;
     \item incollare dentro il progetto dei dispositivi di rete;
     \item annullare l'ultima azione;
-    \item rifare l'ultima azione annullata.
+    \item eseguire l'ultima azione annullata.
 \end{itemize}
 
 \begin{figure}[htbp]
@@ -69,7 +69,7 @@ Il menù View permette di:
 
 \begin{itemize}
     \item aumentare o diminuire il livello di zoom;
-    \item resettare il livello di zoom;
+    \item ripristinare il livello di zoom al valore predefinito;
     \item selezionare le toolbar attive e visibili.
 \end{itemize}
 
@@ -114,7 +114,7 @@ Il menù Help permette di:
     \caption{Help Menù.}
 \end{figure}
 
-\subsection{Toolbar} %image placement
+\subsection{Toolbar}
 
 \subsubsection{Toolbar Principale}
 La toolbar principale posizionata in alto permette di:
@@ -122,14 +122,14 @@ La toolbar principale posizionata in alto permette di:
 \begin{itemize}
     \item creare un nuovo file partendo da zero;
     \item aprire un file già esistente;
-    \item salvare sul file corrente;
+    \item salvare le modifiche sul file corrente;
     \item stampare il progetto seconda una delle rappresentazioni disponibili;
     \item copiare dal progetto dei dispositivi di rete;
     \item incollare dentro il progetto dei dispositivi di rete;
     \item annullare l'ultima azione;
-    \item rifare l'ultima azione annullata;
+    \item eseguire l'ultima azione annullata;
     \item aumentare o diminuire il livello di zoom;
-    \item resettare il livello di zoom;
+    \item ripristinare il livello di zoom al valore predefinito;
     \item disegnare delle figure e linee colorate;
     \item creare dei template per la creazione di dispositivi personalizzati;
     \item modificare la descrizione del progetto;
@@ -175,7 +175,7 @@ La toolbar secondaria posizionata in basso permette di:
 \end{minipage}
 
 \subsubsection{Logical e Physical}
-Sono disponibili due modalità d'esplorazione per la progettazione: Logical e Physical; entrambe sono selezionabili cliccando sulle relative icone in alto a sinistra. La modalità Logical, l'unica usata in questo \textbf{manuale?}, permette di visualizzare la topologia di rete e i dispositivi di rete che ne fanno parte, la modalità Physical, invece, permette di visualizzare dove i dispositivi di rete sono collocati nello spazio.
+Sono disponibili due modalità d'esplorazione per la progettazione: Logical e Physical; entrambe sono selezionabili cliccando sulle relative icone in alto a sinistra. La modalità Logical, l'unica usata in questo \textbf{manuale?}, permette di visualizzare la topologia di rete e i dispositivi di rete che ne fanno parte, la modalità Physical, invece, permette di visualizzare dove i dispositivi di rete sono collocati fisicamente.
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[scale=.6]{images/02.packet-tracer/logical_physical.png}}
@@ -191,7 +191,7 @@ Sono disponibili due modalità operative per la progettazione: Realtime e Simula
 \end{figure}
 
 \subsection{Opzioni Consigliate}
-Al primo avvio del programma si consiglia di aprire il menu “Options”, cliccare su “Preferences” e spuntare la voce “Always Show Port Labels” (in italiano "Mostra sempre le etichette delle porte") nel caso non sia già spuntata. Questa opzione è molto utile in quanto spesso si lavora con porte specifiche degli apparati di rete e questa opzione ci permette di visualizzarne le etichette identificative nella visuale globale rendendo la progettazione più veloce. \newline
+Al primo avvio del programma si consiglia di aprire il menu “Options”, cliccare su “Preferences” e spuntare la voce “Always Show Port Labels” (in italiano "Mostra sempre le etichette delle porte") nel caso non sia già spuntata. Questa opzione è molto utile in quanto è comune lavorare con porte specifiche degli apparati di rete e questa opzione ci permette di visualizzarne le etichette identificative nella modalità Logical rendendo la progettazione più veloce. \newline
 \smallskip
 \newline
 Nel caso in cui si stia utilizzando un monitor ad alta risoluzione è consigliabile aumentare la dimensione del font visualizzato accendendo alla pagina "Font" contenuta nel menu "Options". La grandezza predefinita del font è di 8 punti, con monitor di risoluzione FullHD o superiore è una buona pratica aumentare la grandezza di 2 o più punti.
@@ -199,7 +199,7 @@ Nel caso in cui si stia utilizzando un monitor ad alta risoluzione è consigliab
 \subsection{Apparati di Rete Utilizzati}
 
 \subsubsection{Router}
-Il router è un apparato di rete che permette a più dispositivi di comunicare all'interno della stessa rete informatica. Un router è dunque in grado di gestire tutti quei protocolli necessari alla creazione e gestione di una rete informatica, garantendo che tutti i dispositivi connessi comunichino efficacemente tra loro. Il router si occupa quindi di instradare i pacchetti dati in una rete tenendo conto delle regole poste dal sistemista. Nella maggior parte dei casi i router lavorano al livello 3 Rete della pila ISO/OSI. \newline
+Il router è un apparato di rete che permette a più dispositivi di comunicare tra loro all'interno della stessa rete informatica. Un router è dunque in grado di gestire tutti quei protocolli necessari alla creazione e gestione di una rete informatica, garantendo che tutti i dispositivi connessi comunichino efficacemente tra loro. Il router si occupa quindi di instradare i pacchetti dati in una rete tenendo conto delle regole poste dal sistemista. Nella maggior parte dei casi i router lavorano al livello 3 Rete della pila ISO/OSI. \newline
 \smallskip
 \newline
 In questo \textbf{manuale?} verranno usati i seguenti router:
@@ -207,7 +207,7 @@ In questo \textbf{manuale?} verranno usati i seguenti router:
 \begin{itemize}
     \item Router Generico, può essere usato nella maggior parte dei casi, include una porta console, una porta ausiliaria, quattro porte FastEthernet (due per cavi in rame e due per cavi in fibra ottica) e due porte seriali;
     \item Router Cisco 2911, supporta il protocollo IPv6, include una porta console, una porta ausiliaria e tre porte GigabitEthernet (10 volte più veloci delle porte FastEthernet);
-    \item Router Cisco WRT300N, supporta le connessioni wireless, include una porta Internet da collegare alla rete e 4 porte Ethernet.
+    \item Router Cisco WRT300N, supporta le connessioni wireless, include una porta Internet da collegare alla rete e 4 porte Ethernet per l'utilizzo interno alla sottorete.
 \end{itemize}
 
 \begin{figure}[htbp]
@@ -239,7 +239,7 @@ In questo \textbf{manuale?} verranno usati i seguenti cavi:
 
 \begin{itemize}
     \item Cavo Ethernet dritto in rame, è il cavo più comune ed economico, viene generalmente usato per collegare i dispositivi come PC o laptop agli apparati di rete come switch e router;
-    \item Cavo Ethernet incrociato in rame, è costruito con gli stessi materiali del cavo precedente ma ha la differenza che può essere solo usato per connettere tra loro due dispositivi sullo stesso livello ISO/OSI, ad esempio due PC, due Router o due Switch;
+    \item Cavo Ethernet incrociato in rame, è costruito con gli stessi materiali del cavo precedente ma ha la differenza che può essere solo usato per connettere tra loro due dispositivi sullo stesso livello ISO/OSI, ad esempio due Router o due Switch;
     \item Cavo in fibra ottica, è il cavo con la più grande larghezza di banda disponibile, viene generalmente usato nelle dorsali (backbone) per collegare le reti tra loro garantendo una comunicazione stabile anche quando sono molte le informazioni scambiate;
     \item Cavo Console, viene usato per accedere alla console di apparati di rete come switch e router usando PC o laptop.
 \end{itemize}
@@ -267,7 +267,7 @@ Ogni apparato di rete ha un display name, nome visualizzato nella modalità Logi
 \newline
 hostname *nome* [Configuration Mode] 
 
-\subsubsection{Disattivare i dns lookups} %hbox
+\subsubsection{Disattivare i dns lookups}
 Normalmente quando viene inserito un comando sconosciuto tramite l'interfaccia CLI nella configurazione di un apparato di rete quest'ultimo proverà a cercare un indirizzo IP con dominio corrispondente al comando sconosciuto, per fare ciò impiega più di 30 secondi che possono essere ridotti solo cancellando il comando premendo CTRL+6. Si può ovviare a questa inconvenienza inserendo il seguente comando nel relativo apparato di rete in modo da disattivare la ricerca automatica dei domini. 
 \newline
 \smallskip
