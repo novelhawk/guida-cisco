@@ -1,5 +1,36 @@
 \section{Routing e Sicurezza}
 \subsection{Routing Statico}
 \subsection{VLAN}
+Con il termine VLAN (Virtual Local Area Network) si intende la suddivisione di una rete locale, definita da uno switch, in più reti virtuali non comunicanti tra di loro ma appartenenti alla stessa infrastruttura fisica.
+
+Per procedere alla suddivisione di una rete locale in più VLAN è necessario programmare lo switch a cui è associata la rete, quindi accedere alla console e digitare i seguenti comandi:
+
+\begin{cmds}[Switch]{Configuration mode}{cmd:create-vlan}{Creare una VLAN in uno switch con \textcolor{Highlight1}{id} e \textcolor{Highlight2}{nome} arbitrario tuttavia la VLAN con ID 1 è utilizzata come default quindi convenzionalmente si utilizza la cifra delle decine (10, 20, ...)}
+    \$ vlan \textcolor{Highlight1}{10}\\
+    \$ name \textcolor{Highlight2}{sinistra}\\
+    \$ vlan \textcolor{Highlight1}{20}\\
+    \$ name \textcolor{Highlight2}{destra}
+\end{cmds}
+
+Una volta definite le VLAN si può procedere ad assegnare ad ogni rete virtuale le porte dello switch, suppondendo che lo switch abbia 24 porte in totali:
+
+\begin{cmds}{Configuration mode}{cmd:setup-vlan-ports}{Configurazione delle porte dello switch modificando l'intero \textcolor{Highlight1}{range} di porte e assegnandole ad una \textcolor{Highlight2}{determinata VLAN}}
+    \$ interface range \textcolor{Highlight1}{Fa 0/5-14}\\
+    \$ switchport mode access\\
+    \$ switchport access \textcolor{Highlight2}{vlan 10}\\
+    \$ interface range \textcolor{Highlight1}{Fa 0/15-24}\\
+    \$ switchport mode access\\
+    \$ switchport access \textcolor{Highlight2}{vlan 20}
+\end{cmds}
+
+Un dettaglio importante di cui tenere conto quando si progettano le VLAN è quello di lasciare alcune porte non assegnate, così da poter definire eventuali porte di tronco. Una porta di tronco è una porta dello switch collegata ad un dispositivo esterno alle VLAN (come un router) e serve per permettere la comunicazione tra VLAN e i dispositivi collegati a quella porta.
+
+Definizione di una porta di tronco:
+
+\begin{cmds}[Switch]{Interfaccia esterna}{cmd:trunk-port}{Configurazione dell'interfaccia di tronco}
+    \$ switchport mode trunk\\
+    \$ switchport trunk allowed vlan
+\end{cmds}
+
 \subsection{VPN}
 \subsection{Tunneling}
