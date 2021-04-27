@@ -55,7 +55,7 @@ Una volta fatto ciò, sostituiamo la parte dell'indirizzo IP dedicata agli host 
 \begin{center}
     \begin{tabular}{c@{.}c@{.}c@{.}c}
         255 & 255 & 254 & 0\\
-        11111111 & 11111111 & 11111110 & 00000000
+        11111111 & 11111111 & 1111111\textcolor{red}{0} & \textcolor{red}{00000000}
     \end{tabular}
 \end{center}
 
@@ -73,7 +73,7 @@ Come ultimo passaggio bisogna calcolare il broadcast, ossia l'ultimo indirizzo d
 \begin{center}
     \begin{tabular}{c@{.}c@{.}c@{.}c}
         192 & 168 & 7 & 255\\
-        11000000 & 10101000 & 00000111 & 11111111
+        11000000 & 10101000 & 0000011\textcolor{red}{1} & \textcolor{red}{11111111}
     \end{tabular}
 \end{center}
 
