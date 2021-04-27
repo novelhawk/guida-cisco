@@ -6,6 +6,16 @@
 \usepackage{subfiles}
 \usepackage{graphicx}
 
+\usepackage{adjustbox}
+
+
+\usepackage{longtable}
+\usepackage[usestackEOL]{stackengine}
+\usepackage{booktabs}
+\setstackgap{L}{\normalbaselineskip}
+\newcommand*{\thead}[1]{%
+\multicolumn{1}{c}{\bfseries\begin{tabular}{@{}c@{}}#1\end{tabular}}}
+
 \begin{document}
 \begin{titlepage}
     \centering
