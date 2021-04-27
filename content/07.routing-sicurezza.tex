@@ -24,11 +24,11 @@ Una volta definite le VLAN si può procedere ad assegnare ad ogni rete virtuale 
     \$ switchport access \textcolor{Highlight2}{vlan 3}
 \end{cmds}
 
-Un dettaglio importante di cui tenere conto quando si progettano le VLAN è quello di lasciare alcune porte non assegnate, così da poter definire eventuali porte di tronco. Una porta di tronco è una porta dello switch destinata a far comunicare lo switch e le varie VLAN con i dispositivi esterni.
+Un dettaglio importante di cui tenere conto quando si progettano le VLAN è quello di lasciare alcune porte non assegnate, così da poter definire eventuali porte di tronco. Una porta di tronco è una porta dello switch collegata ad un dispositivo esterno alle VLAN (come un router) e serve per permettere la comunicazione tra VLAN e i dispositivi collegati a quella porta.
 
 Definizione di una porta di tronco:
 
-\begin{cmds}[Switch]{Interface esterna}{cmd:trunk-port}{Configurazione dell'interfaccia di tronco}
+\begin{cmds}[Switch]{Interfaccia esterna}{cmd:trunk-port}{Configurazione dell'interfaccia di tronco}
     \$ switchport mode trunk\\
     \$ switchport trunk allowed vlan
 \end{cmds}
