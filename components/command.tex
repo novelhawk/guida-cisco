@@ -1,0 +1,47 @@
+\NewEnviron{cmds}[4][]
+{
+    \par
+    \medskip
+    \noindent
+    \begin{Command}
+        \centering
+        \begin{tikzpicture}
+            \node [inner sep=4pt, outer sep=0pt] (box)
+            {
+                \parbox[t]{0.8\textwidth}
+                {
+                    \textcolor{CommandsBodyText}{\BODY{}}
+                }
+            };
+        
+            \node [inner xsep=4pt, inner ysep=2pt, above=0 of box, outer sep=0pt] (header) 
+            {
+                \parbox[t]{0.8\textwidth}
+                {
+                    \,
+                    \textcolor{CommandsHeaderText}{#2}
+                    \hfill
+                    \textcolor{CommandsHeaderText}{#1}
+                    \,
+                }
+            };
+        
+            \begin{pgfonlayer}{bg}
+                \fill[CommandsBackground]
+                    (box.north east) 
+                    -- (box.north west) {[rounded corners=4pt]
+                    -- (box.south west) 
+                    -- (box.south east)}
+                    -- cycle;
+                \fill[CommandsHeader]
+                    (header.south west) 
+                    -- (header.south east) {[rounded corners=4pt]
+                    -- (header.north east) 
+                    -- (header.north west)}
+                    -- cycle;
+            \end{pgfonlayer}
+        \end{tikzpicture}%
+        \label{#3}
+        \caption{#4}
+    \end{Command}
+}
