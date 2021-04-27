@@ -2,4 +2,38 @@
 \subsection{Routing Statico}
 \subsection{VLAN}
 \subsection{VPN}
+Con il termine VLAN (Virtual Local Area Network) si intende la suddivisione di una rete locale, definita da uno switch, in più reti virtuali non comunicanti tra di loro ma appartenenti alla stessa infrastruttura fisica.
+
+Per procedere alla suddivisione di una rete locale in più VLAN è necessario programmare lo switch a cui è associata la rete, quindi accedere alla console e digitare i seguenti comandi:
+
+\begin{itemize}
+    \item enable (ena) – per attivare la configurazione dello switch 
+    \item configure terminal (conf t) – per entrare nel terminale di configurazione dello switch 
+    \item vlan 2 – per definire una 
+    \item name “nome” – per assegnare un nome alla vlan corrente 
+    \item vlan 3
+    \item name “nome”
+    \item […]
+\end{itemize}
+
+Una volta definite le VLAN si può procedere ad assegnare ad ogni rete virtuale le porte dello switch, suppondendo che lo switch abbia 24 porte in totali:
+
+\begin{itemize}
+    \item interface range fa0/5-14 – per selezionare le porte dalla 0/5 alla 0/14 comprese
+    \item switchport mode access – per definire il ruolo delle porte
+    \item switchport access vlan2 – per assegnare l’intervallo di porte alla vlan 2
+    \item interface range fa0/15-24 - per selezionare le porte dalla 0/15 alla 0/24 comprese
+    \item switchport mode access
+    \item switchport access vlan3 – per assegnare l’intervallo di porte alla vlan 3
+\end{itemize}
+
+Un dettaglio importante di cui tenere conto quando si progettano le VLAN è quello di lasciare alcune porte non assegnate, così da poter definire eventuali porte di tronco. Una porta di tronco è una porta dello switch destinata a far comunicare lo switch e le varie VLAN con i dispositivi esterni.
+
+Definizione di una porta di tronco:
+
+\begin{itemize}
+    \item interface fa0/1 – per selezionare la porta 0/1
+    \item switchport mode trunk – per definire una porta di tronco
+    \item switchport trunk allowed vlan – per assegnare le vlan alla porta di tronco
+\end{itemize}
 \subsection{Tunneling}
