@@ -37,11 +37,11 @@ Proprio per evitare questo spreco di indirizzi nel VLSM è necessario iniziare s
 
 Nel nostro caso prendiamo la sottorete di partenza che necessita di indirizzi IP per 300 host, e gli assegnamo come indirizzo di partenza 192.168.6.0. Successivamente calcoliamo il numero di bit necessari per gli host richiesti, esso equivale all’esponente della potenza del due che ha come risultato un numero uguale o superiore al numero di host piu due, formalmente, indicando con $n$ il numero di host richiesti, il numero di bit dedicati all'identificazione dell'host equivale a $\lceil \log_2 (n + 2) \rceil$
 
-Quindi nel caso di 128 host, nonostante $2^7 = 128$, saremmo costretti a utilizzare 8 bit siccome il primo indirizzo (quello con solo zeri nella parte degli host) e l'ultimo indirizzo (quello con soli uno nella parte degli host) sono indirizzi speciali il primo dedicato a identificare la rete e il secondo alla comunicazione broadcast.
+Quindi nel caso ipotetico di 128 host, nonostante $2^7 = 128$, saremmo costretti a utilizzare 8 bit siccome il primo indirizzo (quello con solo zeri nella parte degli host) e l'ultimo indirizzo (quello con soli uno nella parte degli host) sono indirizzi speciali il primo dedicato a identificare la rete e il secondo dedicato alla comunicazione broadcast.
 
 Nel nostro caso le potenze del due più vicine a $300$ sono $2^8 = 256$ e $2^9 = 512$ quindi sono necessari 9 bit per ospitare tutti i $300$ host richiesti.
 
-A questo punto inizia il vero calcolo degli indirizzi. Iniziamo a calcolare la subnet mask (255.255.255.255 in numero decimale), e la riscriviamo in binario, che vanno a formare quattro ottetti tutti da 1.
+A questo punto inizia il vero calcolo degli indirizzi. Iniziamo a calcolare la subnet mask partendo da un'indirizzo IP formato esclusivamente da uno:
 
 \begin{center}
     \begin{tabular}{c@{.}c@{.}c@{.}c}
@@ -50,7 +50,7 @@ A questo punto inizia il vero calcolo degli indirizzi. Iniziamo a calcolare la s
     \end{tabular}
 \end{center}
 
-Una volta fatto ciò, partendo da destra, sostituiamo con gli zeri il numero di bit pari al numero di bit precedentemente calcolato. In questo caso essendo 9 il risultato sarà il seguente:
+Una volta fatto ciò, sostituiamo la parte dell'indirizzo IP dedicata agli host (nel nostro caso 9 bit partendo da destra) con gli zeri
 
 \begin{center}
     \begin{tabular}{c@{.}c@{.}c@{.}c}
@@ -60,15 +60,15 @@ Una volta fatto ciò, partendo da destra, sostituiamo con gli zeri il numero di 
 \end{center}
 
 Come ultimo passaggio bisogna calcolare il broadcast, ossia l'ultimo indirizzo disponibile per la sottorete. Iniziamo convertendo in binario il nostro indirizzo di partenza
-%
+
 \begin{center}
     \begin{tabular}{c@{.}c@{.}c@{.}c}
         192 & 168 & 6 & 0\\
         11000000 & 10101000 & 00000110 & 00000000
     \end{tabular}
 \end{center}
-%
-e sempre partendo da destra, contiamo il numero di bit richiesti al inizio (cioè 9) e sostituiamo quest'ultimi con gli uno, quindi in questo caso:
+
+\noindent e come prima sostituiamo la parte degli host ma questa volta con degli uno
 
 \begin{center}
     \begin{tabular}{c@{.}c@{.}c@{.}c}
