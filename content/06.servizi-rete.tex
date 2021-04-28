@@ -35,8 +35,65 @@ Per poter abilitare questo servizio, bisogna nuovamente avere a disposizione un 
 \end{figure}
 
 \subsection{DHCP}
+Il Dynamic Host Configuration Protocol (DHCP) è un protocollo che viene utilizzato per fornire un sistema di gestione centrale rapida e automatica per distribuire gli indirizzi IP all'interno di una particolare rete.
+
+\subsection*{Come funziona?}
+In una architettura client/server, ogni volta che un host client si connette alla rete, richiede un indirizzo IP al DHCP Server che lo sceglierà tra quelli disponibili nel suo address pool. Quando l’host lascerà la rete l’indirizzo IP da esso utilizzato tornerà disponibile.
+
 \subsubsection{Server router}
+Sarà necessaria la creazione di una nuova pool per ogni sottorete.
+
+Il Blocco~di~Comandi~\ref{cmd:dhcp-router} mostra i comandi per configurare una pool DHCP da router per la sottorete da 28 host.
+
+\begin{cmds}[Router]{Configuration mode}{cmd:dhcp-router}{Comandi per configurare una pool DHCP in un Router. Viene specificato un \textcolor{Highlight1}{identificativo}, \textcolor{Highlight2}{l'indirizzo di rete (e subnet)} e \textcolor{Highlight3}{il default gateway}}
+    \$ service dhcp\\
+    \$ ip dhcp pool \textcolor{Highlight1}{rete2}\\
+    \$ network \textcolor{Highlight2}{192.168.8.128 255.255.255.192}\\
+    \$ default-router \textcolor{Highlight3}{192.168.8.129}
+\end{cmds}
+
+\begin{cmds}[Router]{Priviledged mode}{cmd:exclude-addresses}{
+    Comando per escludere il range compreso tra \textcolor{Highlight1}{il primo} e \textcolor{Highlight2}{il secondo} indirizzo IP (estremi inclusi) da una pool DHCP
+}
+    \$ ip dhcp excluded-address \textcolor{Highlight1}{192.168.8.129} \textcolor{Highlight2}{192.168.8.139}
+\end{cmds}
+
+
 \subsubsection{Server specializzato}
+\begin{enumerate}
+    \item Aprire il server che si vorrà utilizzare per il servizio DHCP
+    \item Nella sezione servizi, scegliere DHCP
+    \item Assicurarsi che il servizio DHCP sia attivo su ON
+    \item Creare una nuova pool per ogni sottorete come in Figura~\ref{fig:dhcp-conf-pool}
+    \item Ricordarsi di lasciare un intervallo di almeno 5/6 indirizzi ip disponibili, nel caso ci sia la necessità di inserire nuovi host come stampanti con indirizzo statico.
+    \item Prendendo come esempio la rete che vogliamo creare, sono 3 le sottoreti rimanenti per cui bisognerà creare una pool (vedere Figura~\ref{fig:dhcp-pools})
+    \item Dopo aver creato le varie pool, aprire nuovamente la configurazione di ogni host e cambiare gli indirizzi da statici a DHCP, come illustrato nella Figura~\ref{fig:dhcp-conf-pc}
+\end{enumerate}
+
+\noindent Ricordarsi di lasciare a stampanti e server degli indirizzi statici.
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/06.servizi-rete/dhcp/01.conf-pool.png}
+    \label{fig:dhcp-conf-pool}
+    \caption{Creazione di una nuova pool}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{images/06.servizi-rete/dhcp/02.pools.png}
+    \label{fig:dhcp-pools}
+    \caption{Pool create per le varie sottoreti}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{images/06.servizi-rete/dhcp/03.conf-pc.png}
+    \label{fig:dhcp-conf-pc}
+    \caption{Configurazione dei dispositivi per l'uso del DHCP}
+\end{figure}
+
 \subsection{EMAIL}
 Un ulteriore servizio offerto da Cisco Packet Tracert è il servizio Email. Tale servizio permette di avere la funzionalità della posta elettronica in una singola rete o più reti. Così gli utenti possono scambiarsi messaggi virtuali e avere profili con username e password.
 
