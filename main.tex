@@ -12,6 +12,7 @@
 \usepackage{tikz}
 \usepackage{float}
 \usepackage{environ}
+\usepackage{caption}
 
 \usetikzlibrary{shapes.misc, positioning}
 \usetikzlibrary{calc}
@@ -31,6 +32,9 @@
 
 \input{colors.tex}
 \input{components/command.tex}
+
+% Figures without float
+\newenvironment{sfigure}{}{}
 
 \begin{document}
 \begin{titlepage}
