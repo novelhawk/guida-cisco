@@ -2,15 +2,11 @@
 Utilizzando i router in Cisco packet tracer abbiamo visto tre modalità differenti di questi, ognuna permette l’utilizzo di comandi unici, che in altre modalità non funzionerebbero, queste tre modalità sono la user mode, la privileged mode e la configuration mode.
 
 \subsection{Modalità di esecuzione dei comandi}
-Nello Figura~\ref{fig:exec-modes} è rappresentata la gerarchia delle modalità e alcuni comandi di esse:
+Nello schema sottostante è rappresentata la gerarchia delle modalità e alcuni comandi di esse
 
-\begin{sfigure}
-    \centering
-    \captionsetup{type=figure}
-    \includegraphics[width=0.7\textwidth]{images/03.limitazione.accesso/01.exec-modes.png}
-    \caption{Gerarchia delle modalità}
-    \label{fig:exec-modes}
-\end{sfigure}
+\begin{center}
+    \includegraphics[width=0.9\textwidth]{images/03.limitazione.accesso/01.exec-modes.png}
+\end{center}
 
 \subsubsection{User mode}
 La user mode è la prima modalità a cui un utente ha accesso dopo aver effettuato l’accesso al router. La user mode può essere identificata dal prompt> che segue il nome del router. Questa modalità consente all’utente di eseguire solo i comandi di base, come quelli che mostrano lo stato del sistema. Il router non può essere configurato o riavviato da questa modalità.
@@ -54,7 +50,7 @@ La password tuttavia viene memorizzata nel file di configurazione in chiaro (vis
 \subsubsection{Secret password}
 La soluzione di Cisco al problema intrinseco della password di abilitazione consiste nel creare un nuovo tipo di password chiamata password segreta. La password segreta sositutisce l'enable password e verrà utilizzata per passare dalla User mode alla Privileged mode. Per impostarla è sufficiente utilizzare il comando~\ref{cmd:secret-pwd}
 
-\begin{cmds}{Configuration mode}{cmd:secret-pwd}{Impostare la \textcolor{Highlight1}{password} segreta}
+\begin{cmds}{Configuration mode}{cmd:secret-pwd}{Impostare la password segreta}
     \$ enable secret \textcolor{Highlight1}{miapassword}
 \end{cmds}
 
@@ -79,6 +75,6 @@ Le sessioni CLI remote utilizzano linee che si riferiscono a linee di telescritt
 \subsection{Message of the Day}
 I banner sono messaggi visualizzati agli utenti che si connettono ai router tramite le varie linee (console, vty e ausiliaria). I banner vengono solitamente utilizzati per visualizzare un messaggio che vieta l’accesso non autorizzato e per avvisare delle conseguenze legali in caso di infrazione. Per impostare il messaggio del giorno si possono usare i comandi nel blocco~\ref{cmd:set-motd}
 
-\begin{cmds}{Configuration mode}{cmd:set-motd}{Impostare il messaggio del giorno, viene delimitato dai due \textcolor{Highlight2}{caratteri} all'inizio e alla fine.}
-    \$ banner motd \#Authorized Personnel Only\#
+\begin{cmds}{Configuration mode}{cmd:set-motd}{Impostare il \textcolor{Highlight3}{messaggio del giorno}, viene delimitato dai due \textcolor{Highlight2}{caratteri} all'inizio e alla fine.}
+    \$ banner motd \textcolor{Highlight2}{\#}\textcolor{Highlight3}{Authorized Personnel Only}\textcolor{Highlight2}{\#}
 \end{cmds}
