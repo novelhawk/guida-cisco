@@ -1,0 +1,17 @@
+\contentsline {commandblock}{\numberline {1}{\ignorespaces Come cambiare l'hostname del dispositivo nel \leavevmode {\color {Highlight1}nome specificato}\relax }}{12}{commandblock.caption.17}%
+\contentsline {commandblock}{\numberline {2}{\ignorespaces Configurare l'indirizzo IP di un'interfaccia con l'\leavevmode {\color {Highlight1}indirizzo dell'interfaccia} e la \leavevmode {\color {Highlight2}subnet della rete}. \relax }}{12}{commandblock.caption.18}%
+\contentsline {commandblock}{\numberline {3}{\ignorespaces Assegnare un indirizzo IPv6 statico\relax }}{12}{commandblock.caption.19}%
+\contentsline {commandblock}{\numberline {4}{\ignorespaces Accendere un'interfaccia di rete\relax }}{12}{commandblock.caption.20}%
+\contentsline {commandblock}{\numberline {5}{\ignorespaces Disattivare i lookup DNS\relax }}{13}{commandblock.caption.21}%
+\contentsline {commandblock}{\numberline {6}{\ignorespaces Salvare la configurazione del router\relax }}{13}{commandblock.caption.22}%
+\contentsline {commandblock}{\numberline {7}{\ignorespaces Assegnazione della password di abilitazione\relax }}{15}{commandblock.caption.23}%
+\contentsline {commandblock}{\numberline {8}{\ignorespaces Estrapolare la password di attivazione dal file di configurazione\relax }}{16}{commandblock.caption.24}%
+\contentsline {commandblock}{\numberline {9}{\ignorespaces Impostare la password segreta\relax }}{16}{commandblock.caption.25}%
+\contentsline {commandblock}{\numberline {10}{\ignorespaces Impostare la password console\relax }}{16}{commandblock.caption.26}%
+\contentsline {commandblock}{\numberline {11}{\ignorespaces Impostare la password per connessioni remote come Telnet e SSH\relax }}{17}{commandblock.caption.27}%
+\contentsline {commandblock}{\numberline {12}{\ignorespaces Impostare il \leavevmode {\color {Highlight3}messaggio del giorno}, viene delimitato dai due \leavevmode {\color {Highlight2}caratteri} all'inizio e alla fine.\relax }}{17}{commandblock.caption.28}%
+\contentsline {commandblock}{\numberline {13}{\ignorespaces Comandi per configurare una pool DHCP in un Router. Viene specificato un \leavevmode {\color {Highlight1}identificativo}, \leavevmode {\color {Highlight2}l'indirizzo di rete (e subnet)} e \leavevmode {\color {Highlight3}il default gateway}\relax }}{22}{commandblock.caption.33}%
+\contentsline {commandblock}{\numberline {14}{\ignorespaces Comando per escludere il range compreso tra \leavevmode {\color {Highlight1}il primo} e \leavevmode {\color {Highlight2}il secondo} indirizzo IP (estremi inclusi) da una pool DHCP \relax }}{22}{commandblock.caption.34}%
+\contentsline {commandblock}{\numberline {15}{\ignorespaces Creare una VLAN in uno switch con \leavevmode {\color {Highlight1}id} e \leavevmode {\color {Highlight2}nome} arbitrario tuttavia la VLAN con ID 1 è utilizzata come default quindi convenzionalmente si utilizza la cifra delle decine (10, 20, ...)\relax }}{27}{commandblock.caption.42}%
+\contentsline {commandblock}{\numberline {16}{\ignorespaces Configurazione delle porte dello switch modificando l'intero \leavevmode {\color {Highlight1}range} di porte e assegnandole ad una \leavevmode {\color {Highlight2}determinata VLAN}\relax }}{27}{commandblock.caption.43}%
+\contentsline {commandblock}{\numberline {17}{\ignorespaces Configurazione dell'interfaccia di tronco\relax }}{27}{commandblock.caption.44}%

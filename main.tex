@@ -20,10 +20,7 @@
 \pgfdeclarelayer{bg}
 \pgfsetlayers{bg,main}
 
-\newcounter{cmdcount}[section]
-
-\floatstyle{plain}
-\newfloat{Command}{hpt}{lop}[subsection]
+\DeclareCaptionType{commandblock}[Blocco di Comandi][Blocchi di Comando]
 
 \hypersetup{
     colorlinks,
@@ -67,6 +64,8 @@
     \hypersetup{linkcolor=IndexLinkColor}
     \tableofcontents
 }
+\newpage
+\listofcommandblock
 \newpage
 
 \subfile{content/01.introduzione}
