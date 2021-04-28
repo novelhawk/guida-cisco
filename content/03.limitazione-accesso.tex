@@ -21,7 +21,6 @@ La modalità privileged mode consente agli utenti di visualizzare la configurazi
 
 La privileged mode può essere identificata con \emph{Hostname\#}
 
-
 \subsubsection{Configuration mode}
 La configuraion mode globale consente agli utenti di modificare la configurazione del sistema in esecuzione. Dalla privileged mode un utente può passare alla configuration mode eseguendo il comando “configure terminal” dalla privileged mode. Per uscire dalla configuration mode, l’utente può immettere il comando “end” o premere la combinazione di tasti Ctrl-Z.
 
@@ -37,8 +36,6 @@ La configuration mode globale ha varie sottomodalità, a partire dalla configura
 
 \subsection{Password}
 Diversi tipi di password possono essere configurate su un router Cisco, come la password di abilitazione, la password segreta e anche la porta della console. Tutte queste posizioni delle password rappresentano buone posizioni di accesso per le password, ma se hai solo una password su una sola posizione di accesso, dovresti almeno avere una password di abilitazione.
-
-I comandi sono 4, “enable”, “console”, “remote” e “secret password” e possono essere inseriti dopo essere entrati nella configuration mode.
 
 \subsubsection{Enable}
 La password di abilitazione viene utilizzata ogni volta che si passa dalla EXEC user mode alla EXEC privileged mode. Questa password ti dà sicurezza sul tuo router perché la Privileged mode EXEC è dove si trovano tutti i comandi pericolosi, incluso l’accesso alla modalità Configurazione globale. Per impostare una password di abilitazione, si utilizza il Comando~\ref{cmd:set-pwd}
@@ -84,5 +81,3 @@ I banner sono messaggi visualizzati agli utenti che si connettono ai router tram
 \begin{cmds}{Configuration mode}{cmd:set-motd}{Impostare il messaggio del giorno, viene delimitato dai due \textcolor{Highlight2}{caratteri} all'inizio e alla fine.}
     \$ banner motd \#Authorized Personnel Only\#
 \end{cmds}
-
-
