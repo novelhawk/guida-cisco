@@ -8,6 +8,29 @@
 \usepackage{graphicx}
 \usepackage{adjustbox}
 \usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{environ}
+
+\usetikzlibrary{shapes.misc, positioning}
+\usetikzlibrary{calc}
+
+\pgfdeclarelayer{bg}
+\pgfsetlayers{bg,main}
+
+\newcounter{cmdcount}[section]
+
+\floatstyle{plain}
+\newfloat{Command}{hpt}{lop}[subsection]
+
+\hypersetup{
+    colorlinks,
+    linkcolor=LinkColor
+}
+
+\input{colors.tex}
+\input{components/command.tex}
 
 \begin{document}
 \begin{titlepage}
@@ -36,7 +59,10 @@
     \textbf{\Large 2020/2021}
 \end{titlepage}
 
-\tableofcontents
+{
+    \hypersetup{linkcolor=IndexLinkColor}
+    \tableofcontents
+}
 \newpage
 
 \subfile{content/01.introduzione}

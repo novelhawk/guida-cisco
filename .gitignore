@@ -5,3 +5,6 @@
 *.log
 *.toc
 *.gz
+*.out
+*.synctex*
+*.synctex(busy)
