@@ -13,26 +13,29 @@ Per poter abilitare questo servizio, bisogna nuovamente avere a disposizione un 
     \item Il procedimento è andato a buon fine. Per verificare, si può provare a connettersi al server tramite DNS con un pc. Tale pc avrà bisogno dell’indirizzo DNS inserito nelle impostazioni attraverso Desktop, configurazione IP.
 \end{enumerate}
 
-\begin{figure}[htbp]
+\begin{sfigure}
     \centering
+    \captionsetup{type=figure}
     \includegraphics[width=0.5\textwidth]{images/06.servizi-rete/dns/01.conf-server.png}
     \caption{Esempio di schermata del servizio DNS.}
     \label{fig:dns-conf-server}
-\end{figure}
+\end{sfigure}
 
-\begin{figure}[htbp]
+\begin{sfigure}
     \centering
+    \captionsetup{type=figure}
     \includegraphics[width=0.5\textwidth]{images/06.servizi-rete/dns/02.conf-pc.png}
     \caption{Configurazione indirizzo server DNS nel pc.}
     \label{fig:dns-conf-pc}
-\end{figure}
+\end{sfigure}
 
-\begin{figure}[htbp]
+\begin{sfigure}
     \centering
+    \captionsetup{type=figure}
     \includegraphics[width=0.5\textwidth]{images/06.servizi-rete/dns/03.test.png}
     \caption{Prova funzionamento del DNS}
     \label{fig:dns-test}
-\end{figure}
+\end{sfigure}
 
 \subsection{DHCP}
 Il Dynamic Host Configuration Protocol (DHCP) è un protocollo che viene utilizzato per fornire un sistema di gestione centrale rapida e automatica per distribuire gli indirizzi IP all'interno di una particolare rete.
@@ -73,26 +76,29 @@ Il Blocco~di~Comandi~\ref{cmd:dhcp-router} mostra i comandi per configurare una 
 \noindent Ricordarsi di lasciare a stampanti e server degli indirizzi statici.
 
 
-\begin{figure}[htbp]
+\begin{sfigure}
     \centering
+    \captionsetup{type=figure}
     \includegraphics[width=0.8\textwidth]{images/06.servizi-rete/dhcp/01.conf-pool.png}
     \caption{Creazione di una nuova pool}
     \label{fig:dhcp-conf-pool}
-\end{figure}
+\end{sfigure}
 
-\begin{figure}[htbp]
+\begin{sfigure}
     \centering
+    \captionsetup{type=figure}
     \includegraphics[width=\textwidth]{images/06.servizi-rete/dhcp/02.pools.png}
     \caption{Pool create per le varie sottoreti}
     \label{fig:dhcp-pools}
-\end{figure}
+\end{sfigure}
 
-\begin{figure}[htbp]
+\begin{sfigure}
     \centering
+    \captionsetup{type=figure}
     \includegraphics[width=\textwidth]{images/06.servizi-rete/dhcp/03.conf-pc.png}
     \caption{Configurazione dei dispositivi per l'uso del DHCP}
     \label{fig:dhcp-conf-pc}
-\end{figure}
+\end{sfigure}
 
 \subsection{EMAIL}
 Un ulteriore servizio offerto da Cisco Packet Tracert è il servizio Email. Tale servizio permette di avere la funzionalità della posta elettronica in una singola rete o più reti. Così gli utenti possono scambiarsi messaggi virtuali e avere profili con username e password.
@@ -108,19 +114,21 @@ Per attivare questo servizio, bisogna seguire dei determinati passaggi:
     \item Cliccando su Compose è possibile inviare una mail ad un determinato indirizzo di posta. Cliccando su Reply è possibile rispondere ad una mail che si è ricevuta. Cliccando su Receive è possibile aggiornare le email ricevute. Cliccando su delete è possibile cancellare le email ricevute.
 \end{enumerate}
 
-\begin{figure}[htbp]
+\begin{sfigure}
     \centering
+    \captionsetup{type=figure}
     \includegraphics[width=0.5\textwidth]{images/06.servizi-rete/email/01.conf-server.png}
     \caption{Esempio di schermata del servizio Email.}
     \label{fig:email-conf-server}
-\end{figure}
+\end{sfigure}
 
-\begin{figure}[htbp]
+\begin{sfigure}
     \centering
+    \captionsetup{type=figure}
     \includegraphics[width=0.5\textwidth]{images/06.servizi-rete/email/02.test.png}
     \caption{Esempio di configurazione dell’utente.}
     \label{fig:email-conf-client}
-\end{figure}
+\end{sfigure}
 
 \subsection{HTTP}
 Cisco Packet Tracert offre, in aggiunta, il servizio HTTP, così da permettere a più utenti di una singola rete o di più reti per accedere ad un sito internet completamente configurabile. L’HTTP (HyperText Transfer Protocol) di per sé è un insieme di regole che un server deve seguire quando si tratta della trasmissione di file attraverso il World Wide Web. La base del funzionamento di tale protocollo è che ogni file o pagina è collegato a altri file attraverso una serie di collegamenti. Esiste una versione più sicura del HTTP chiamato HTTPS che, aggiungendo la crittografia dei dati sensibili, permette una maggiore sicurezza durante l’invio dei pacchetti.
@@ -135,16 +143,18 @@ Per abilitare il servizio HTTP su Cisco Packet Tracert, bisogna avere a disposiz
     \item Per potersi connettere a questo sito, bisogna avere a disposizione di un pc che sia connesso alla rete del server. Dopo aver aperto la schermata “Web Browser” dalla scheda desktop del pc, è possibile inserire l’indirizzo ip del server, così da connettersi al suo sito. Di default, la prima pagina è la “index.html”.
 \end{enumerate}
 
-\begin{figure}[htbp]
+\begin{sfigure}
     \centering
+    \captionsetup{type=figure}
     \includegraphics[width=0.5\textwidth]{images/06.servizi-rete/http/01.conf-server.png}
     \caption{Esempio di schermata HTTP di un server. Da qui è possibile cancellare, modificare o aggiungere una nuova pagina html.}
     \label{fig:http-conf}
-\end{figure}
+\end{sfigure}
 
-\begin{figure}[htbp]
+\begin{sfigure}
     \centering
+    \captionsetup{type=figure}
     \includegraphics[width=0.5\textwidth]{images/06.servizi-rete/http/02.conf-client.png}
     \caption{Esempio di collegamento alla pagina index di un sito. Nell’URL va inserito l’indirizzo del server + / + nome della pagina.}
     \label{fig:http-test}
-\end{figure}
+\end{sfigure}
