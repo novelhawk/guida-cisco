@@ -71,3 +71,150 @@ Definizione di una porta di tronco:
 
 \subsection{VPN}
 \subsection{Tunneling}
+Le informazioni che vengono trasmesse tramite Internet, o tra due dispositivi digitali, necessitano di protocolli. Tali protocolli dividono il messaggio in diverse parti (in genere due), una contenente i dati effettivi che vengono trasmessi e l'altra contenente le informazioni relative alle regole di trasmissione. Per poter stabilire una connessione, entrambe le parti coinvolte devono comprendere e utilizzare lo stesso protocollo di comunicazione. Un protocollo di tunneling include nel proprio datagramma un altro pacchetto di dati completo che utilizza un protocollo di comunicazione diverso. In sostanza, crea un tunnel tra due punti di una rete che possono trasmettere tra loro qualsiasi tipo di dato in tutta sicurezza.
+
+In genere, questi tipi di protocolli vengono utilizzati per inviare i dati di una rete privata tramite una rete pubblica, solitamente quando si crea una VPN (Virtual Private Network), ma possono essere utilizzati anche per aumentare la sicurezza dei dati non crittografati che vengono inviati tramite una rete pubblica. Sono disponibili diversi protocolli di tunneling alquanto diffusi, ad esempio Secure Shell (SSH), Point-to-Point Tunneling (PPTP) e IPsec, ognuno dei quali è stato progettato per uno scopo specifico.
+
+Poiché i protocolli di tunneling nascondono nel proprio datagramma un pacchetto completo, potrebbero essere utilizzati in modo improprio. Il tunneling viene spesso utilizzato per bypassare firewall non sofisticati o non configurati in modo adeguato includendo protocolli bloccati nei protocolli che il firewall lascia passare. L'uso dei protocolli di tunneling rende, inoltre, difficile il completamento di attività quali il controllo dettagliato dei pacchetti, in cui l'infrastruttura di rete analizza il datagramma alla ricerca di dati sospetti, o il filtraggio dei dati in entrata/uscita, che esegue il test di integrità funzionale degli indirizzi di destinazione dei dati per evitare potenziali attacchi. Si registrano anche casi di malware trasmessi tramite la nuova tecnologia IPv6, che deve utilizzare il tunneling per la trasmissione verso o tramite dispositivi non compatibili.
+
+In quanto potenziale minaccia, i protocolli di tunneling devono essere utilizzati solo da professionisti IT o di rete che possano garantire che i propri sistemi siano in grado di bloccare tunnel indesiderati e siano configurati in modo da poter applicare i protocolli di sicurezza ai dati inviati tramite un tunnel noto, analogamente ai dati inviati tramite una VPN.
+
+\subsubsection{Vantaggi}
+\begin{itemize}
+    \item Permette ad un protocollo straniero di essere usato su una rete che non lo supporta; (Bypassare i blocchi geografici)
+    \item Protegge dall'intercettazione dei dati; (connessione sicura)
+    \item Bypassare i Firewall (es. Un firewall locale potrebbe essere, per esempio, quello di un’università che non consente di collegarsi a Netflix, o un firewall nel tuo posto di lavoro, che blocca determinati siti, come ad esempio YouTube. Connettendoti tramite una VPN, il problema non esiste più.)
+    \item Nasconde l’indirizzo IP;
+    \item I siti visitati vedranno solo la posizione del server VPN a cui sei connesso e non la posizione reale.
+\end{itemize}
+
+\subsubsection{Svantaggi}
+\begin{itemize}
+    \item Connessione internet lenta, poiché essa deve venire re-instradata e criptata tramite il server.
+    \item Non supportato da tutti i dispositivi
+\end{itemize}
+
+\subsubsection{Componenti Cisco}
+
+\subsubsection*{Network devices}
+Per prima cosa \textbf{verificare che i router siano compatibili} con il protocollo IPv6.\\
+Due router compatibili sono: 2811 e 2911
+
+In questo progetto utilizzeremo: 2x Router 2911, Tunnel1 e Tunnel2
+
+\begin{center}
+    \includegraphics[width=\linewidth]{images/07.routing-sicurezza/tunneling/01.routers.png}
+\end{center}
+
+2x Switch 2950T-24 (Switch4 e Switch2)
+
+\begin{center}
+    \includegraphics[width=\linewidth]{images/07.routing-sicurezza/tunneling/02.png}
+\end{center}
+
+\subsubsection*{End devices}
+2x PC-PT (PC7 e PC8)
+
+\begin{center}
+    \includegraphics[width=\linewidth]{images/07.routing-sicurezza/tunneling/03.png}
+\end{center}
+
+\subsubsection*{Cavi}
+Copper Cross-Over da Router0 e Router1 ai Router Tunnel1 e Tunnel2
+
+\begin{center}
+    \includegraphics[width=\linewidth]{images/07.routing-sicurezza/tunneling/04.png}
+\end{center}
+
+\noindent Copper Straight-Through dai Router Tunnel1 e Tunnel2 agli Switch4 e Switch2 e dagli Switch4 e Switch2 ai PC7 e PC8
+
+\begin{center}
+    \includegraphics[width=\linewidth]{images/07.routing-sicurezza/tunneling/05.png}
+\end{center}
+
+\subsubsection*{Porte Router Tunnel1}
+
+\begin{center}
+    \includegraphics[width=\linewidth]{images/07.routing-sicurezza/tunneling/06.png}
+\end{center}
+
+\subsubsection*{Porte Router Tunnel2}
+
+\begin{center}
+    \includegraphics[width=\linewidth]{images/07.routing-sicurezza/tunneling/07.png}
+\end{center}
+
+\subsubsection*{Porte Switch4 e PC7:}
+
+\begin{center}
+    \includegraphics[width=\linewidth]{images/07.routing-sicurezza/tunneling/08.png}
+\end{center}
+
+\subsubsection*{Porte Switch2 e PC8:}
+
+\begin{center}
+    \includegraphics[width=\linewidth]{images/07.routing-sicurezza/tunneling/09.png}
+\end{center}
+
+\subsubsection{Realizzazione Tunneling}
+Per poter effettuare la tecnica del tunneling sul programma Cisco Packet Tracer (in questo caso nella versione Student Version 6.2.0.0052) basterà seguire questi passaggi:
+
+\begin{enumerate}
+    \item Per prima cosa dobbiamo entrare nel Router “Tunnel2” del nostro progetto, recandoci nella sezione “CLI” di esso (Command Line Interface);\par
+    \begin{center}
+        \includegraphics[width=\linewidth]{images/07.routing-sicurezza/tunneling/10.png}
+    \end{center}
+    \item A questo punto dovranno essere inseriti i seguenti comandi in questo ordine:\par
+    \begin{cmds}{Configuration mode}{cmd:setup-tunneling-1}{Configurazione Tunneling}
+        \$ ipv6 unicast-routing\\
+        \$ interface tunnel 0\\
+        \$ ipv6 address 2000::2/64\\
+        \$ ipv6 rip 5info enable\\
+        \$ tunnel source Gig0/0\\
+        \$ tunnel destination 192.168.8.218/30\\
+        \$ tunnel mode ipv6ip\\
+        \$ no shutdown
+    \end{cmds}
+    \item Ora che il tunnel è stato impostato, configuriamo le porte che verranno utilizzate su questo router:\par
+    \begin{cmds}{Configuration mode}{cmd:setup-tunneling-2}{Configuratione Porte}
+        \$ interface Gig0/1\\
+        \$ ipv6 enable\\
+        \$ ipv6 address 1000::1/64\\
+        \$ ipv6 rip 6bone enable\\
+        \$ no shutdown\\
+        \$ exit\\
+        \$ interface Gig0/0\\
+        \$ ip address 192.168.8.214 255.255.255.252\\
+        \$ no shutdown
+    \end{cmds}
+    \item Configuriamo ora l’altro router (Tunnel1) incluso nel tunnel che stiamo creando;
+    \item Ci rechiamo dunque anche in esso nell’interfaccia “CLI” e inseriamo i seguenti comandi:\par
+    \begin{cmds}{Configuration mode}{cmd:setup-tunneling-3}{Configurazione Tunnel1 altro Router}
+        \$ ipv6 unicast-routing\\
+        \$ interface tunnel 0\\
+        \$ ipv6 address 2000::1/64\\
+        \$ ipv6 rip 6bone enable\\
+        \$ tunnel source Gig0/0\\
+        \$ tunnel destination 192.168.8.214/30\\
+        \$ tunnel mode ipv6ip\\
+        \$ no shutdown\\
+        \$ interface Gig0/1\\
+        \$ ipv6 enable\\
+        \$ ipv6 address 3000::1/64\\
+        \$ ipv6 rip 5info enable\\
+        \$ no shutdown
+    \end{cmds}
+    \item A questo punto abbiamo bisogno di effettuare l’Ip Route nei due router per rendergli possibile l’instradamento delle informazioni attraverso il tunnel che stiamo creando;
+    \item Accediamo dunque al router “Tunneling1” e sempre nella sezione “CLI” digitiamo I seguenti comandi:\par
+    \begin{cmds}{Configuration mode}{cmd:setup-tunneling-4}{Configurazione Routes}
+        \$ ip route 192.168.8.212 255.255.255.252 2000::2/64
+    \end{cmds}
+    \item Facciamo la stessa cosa con il router “Tunneling2”:\par
+    \begin{cmds}{Configuration mode}{cmd:setup-tunneling-4}{Configurazione Routes}
+        \$ ip route 192.168.8.216 255.255.255.252 2000::1/64
+    \end{cmds}
+    \item Ora avremmo così creato la seguente topologia:\par
+    \begin{center}
+        \includegraphics[width=\linewidth]{images/07.routing-sicurezza/tunneling/11.png}
+    \end{center}
+\end{enumerate}
