@@ -9,3 +9,4 @@
 *.synctex*
 *.synctex(busy)
 .vscode
+*.lo*
