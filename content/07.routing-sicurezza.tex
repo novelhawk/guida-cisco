@@ -10,16 +10,28 @@ Nonostante ciò, però, il routing statico è ancora molto utilizzato e permette
 Per assegnare degli indirizzi IP in maniera statica ai dispositivi in una rete bastano 4 step, vediamone un esempio concreto svolto su CISCO packet tracer:
 
 \begin{enumerate}
-    \item Per prima cosa aprire la finestra relativa al dispositivo in questione(in questo caso un PC)
-    \item Entrare nel Desktop del pc tramite il menu sovrastante
-    \item Entrare nel menu della configurazione IP tramite l’icona presente nel desktop
-    \item In conclusione, inserire i dati riguardante gli indirizzi IP all’interno degli appositi come nell’esempio sotto riportato
+    \item Per prima cosa aprire la finestra relativa al dispositivo in questione (in questo caso un PC)\par
+    \begin{sfigure}
+        \includegraphics[width=0.6\linewidth]{images/07.routing-sicurezza/01.open-pc.jpg}
+    \end{sfigure}
+    \item Entrare nel Desktop del pc tramite il menu sovrastante\par
+    \begin{sfigure}
+        \includegraphics[width=0.6\linewidth]{images/07.routing-sicurezza/02.desktop-tab.jpg}
+    \end{sfigure}
+    \item Entrare nel menu della configurazione IP tramite l’icona presente nel desktop\par
+    \begin{sfigure}
+        \includegraphics[width=0.6\linewidth]{images/07.routing-sicurezza/03.ip-config.jpg}
+    \end{sfigure}
+    \item In conclusione, inserire i dati riguardante gli indirizzi IP all’interno degli appositi come nell’esempio sotto riportato\par
+    \begin{sfigure}
+        \includegraphics[width=0.6\linewidth]{images/07.routing-sicurezza/04.ip-config-complete.jpg}
+    \end{sfigure}
 \end{enumerate}
 
 \subsubsection*{IP Route}
 Il comando ip route è essenziale per la comunicazione tra reti a routing statico, dato che permette di creare rotte statiche e di conseguenza, instaurare il collegamento tra sottoreti. La sintassi del comando è molto semplice come vedremo a breve
 
-Ecco come aggiungere una rotta tra router
+Ecco come aggiungere una rotta tra router:
 
 \begin{cmds}[Router]{Configuration mode}{cmd:ip-route-example}{Aggiungere una rotta statica nel router che indirizza i pacchetti destinati alla \textcolor{Highlight1}{rete specificata} verso l'\textcolor{Highlight2}{indirizzo IP o l'interfaccia} designata }
     \$ ip route \textcolor{Highlight1}{192.168.1.0 255.255.255.0} \textcolor{Highlight2}{172.16.100.1}
