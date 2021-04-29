@@ -14,7 +14,7 @@ In questa sezione del documento saranno trattati i seguenti argomenti:
 Nel caso vogliate visualizzare gli indirizzi ip assegnati e lo stato delle porte, dovrete scrivere nella console del router di vostro interesse il comando show run (in forma estesa significherebbe show running -config), in questo modo potrete visualizzare le informazioni citate prima.
 
 \begin{center}
-    \includegraphics[width=\linewidth]{images/04.debugging-rete/01.png}
+    \includegraphics[width=0.8\linewidth]{images/04.debugging-rete/01.png}
 \end{center}
 
 Se si presenta la scritta shutdown nell’ output, significa che la porta non è funzionante, vi ricordo che ogni volta che assegnate un indirizzo ip è necessario scrivere il comando no shutdown, come ultimo comando, per rendere la porta funzionante.
@@ -32,7 +32,7 @@ Un altro comando che vi può risultare utile è il comando show ip interface bri
 I vari indirizzi assegnati alle varie interfacce disponibili, inoltre potrete avere in output anche lo stato delle interfacce. 
 
 \begin{center}
-    \includegraphics[width=\linewidth]{images/04.debugging-rete/03.png}
+    \includegraphics[width=0.8\linewidth]{images/04.debugging-rete/03.png}
 \end{center}
 
 \subsection{Sintesi tabelle di routing}
@@ -43,19 +43,19 @@ Una volta che si è svolta tale procedura si potrà visualizzare la tabella nell
 
 \begin{verbatim}
 Routing tables
-Destination      Gateway         Flags     Refs   Use       Interface
+Destination   Gateway       Flags  Refs   Use       Interface
 
 Route Tree for Protocol Family 2:
-default          194.20.20.6     UG        196    18646259  tu0
-127.0.0.1        127.0.0.1       UH        2      27417     lo0
-194.20.20        194.20.20.20    U         190    44212849  tu0
-192.36.73        194.20.20.6     UGDM      0      33189     tu0
-193.45.68        194.20.20.32    UGD       0      91719     tu0
-193.45.71        194.20.20.33    UGD       0      6484      tu0
-194.20.20.211    194.20.20.7     UGHD      0      7508      tu0
+default       194.20.20.6   UG     196    18646259  tu0
+127.0.0.1     127.0.0.1     UH     2      27417     lo0
+194.20.20     194.20.20.20  U      190    44212849  tu0
+192.36.73     194.20.20.6   UGDM   0      33189     tu0
+193.45.68     194.20.20.32  UGD    0      91719     tu0
+193.45.71     194.20.20.33  UGD    0      6484      tu0
+194.20.20.211 194.20.20.7   UGHD   0      7508      tu0
 \end{verbatim}
 
-I vari flags che ci si presentano hanno ognuno un significato in particolare:
+\noindent I vari flags che ci si presentano hanno ognuno un significato in particolare:
 
 \begin{itemize}
     \item \textbf{U} significa che la route è attiva (UP)
@@ -76,27 +76,29 @@ Se si vuole esaminare le informazioni della tabella di routing bisogna inserire,
 \end{fcmds}
 
 \begin{verbatim}
-Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B – BGP
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile,
+B – BGP
 D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
 E1 - OSPF external type 1, E2 - OSPF external type 2, E – EGP
-i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, * - candidate default
+i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, * - candidate
+default
 Gateway of last resort is 0.0.0.0 to network 0.0.0.0
-D    194.21.195.0 [90/40537600] via 194.20.20.36, 00:01:06, Ethernet0
-D    194.20.194.0 [90/281600] via 194.20.20.35, 17:46:12, Ethernet0
-D    194.20.195.0 [90/281600] via 194.20.20.35, 17:46:12, Ethernet0
-D    194.20.192.0 [90/281600] via 194.20.20.35, 17:46:14, Ethernet0
-D    194.20.193.0 [90/281600] via 194.20.20.35, 17:46:12, Ethernet0
-S    194.20.146.0 is directly connected, Serial0
-S    194.20.147.0 is directly connected, Serial0
-S    194.20.144.0 is directly connected, Serial0
-     194.20.145.0 is variably subnetted, 2 subnets, 2 masks
-S   194.20.145.0 255.255.255.0 is directly connected, Serial0
-C   194.20.145.252 255.255.255.252 is directly connected, Serial0
-     194.20.158.0 is variably subnetted, 2 subnets, 2 masks
-S   194.20.158.0 255.255.255.0 is directly connected, Serial2
-C   194.20.158.240 255.255.255.240 is directly connected, Serial2
-S    194.20.159.0 is directly connected, Serial2
-S    194.20.156.0 is directly connected, Serial2
+D  194.21.195.0 [90/405376] via 194.20.20.36, 00:01:06, Ethernet0
+D  194.20.194.0 [90/281600] via 194.20.20.35, 17:46:12, Ethernet0
+D  194.20.195.0 [90/281600] via 194.20.20.35, 17:46:12, Ethernet0
+D  194.20.192.0 [90/281600] via 194.20.20.35, 17:46:14, Ethernet0
+D  194.20.193.0 [90/281600] via 194.20.20.35, 17:46:12, Ethernet0
+S  194.20.146.0 is directly connected, Serial0
+S  194.20.147.0 is directly connected, Serial0
+S  194.20.144.0 is directly connected, Serial0
+   194.20.145.0 is variably subnetted, 2 subnets, 2 masks
+S  194.20.145.0 255.255.255.0 is directly connected, Serial0
+C  194.20.145.252 255.255.255.252 is directly connected, Serial0
+   194.20.158.0 is variably subnetted, 2 subnets, 2 masks
+S  194.20.158.0 255.255.255.0 is directly connected, Serial2
+C  194.20.158.240 255.255.255.240 is directly connected, Serial2
+S  194.20.159.0 is directly connected, Serial2
+S  194.20.156.0 is directly connected, Serial2
 \end{verbatim}
 
 Le informazioni più dettagliate riguardanti una singola route si possono avere eseguendo il comando show ip route più l'indirizzo sulla console, usando questo comando si potrà ottenere un output simile a questo:
@@ -135,7 +137,7 @@ Un'altra tipologia di verifica è quella della simulazione o simulation, la qual
 In basso a destra potrete notare due icone una appoggiata sull' altra, dovete cliccare su quella che si presenta sopra rispetto all'altra, una volta che avrete cliccato sarete passati dalla modalità real time alla modalità simultation.
 
 \begin{center}
-    \includegraphics[width=\linewidth]{images/04.debugging-rete/04.png}
+    \includegraphics[width=0.3\linewidth]{images/04.debugging-rete/04.png}
 \end{center}
 
 E’ necessario anche selezionare soltanto i protocolli legati alle funzioni che dovete eseguire, questa operazione si attua entrando nella event list, poi bisogna selezionare show all none in modo che si formatti tutta la event list ed infine cliccare solo sui protocolli che vi servono, in questo caso vi serve solamente l'ICMP.
@@ -147,7 +149,7 @@ E’ necessario anche selezionare soltanto i protocolli legati alle funzioni che
 Nella parte dello schermo relativa alla tool box di cisco bisogna cliccare nell’ opzione add simple PDU, ovvero l'icona che si presenta come una busta chiusa con il simbolo del più, poi dovete cliccare sul dispositivo di rete dal quale volete far partire il pacchetto e poi sul dispositivo di rete destinatario.
 
 \begin{center}
-    \includegraphics[width=\linewidth]{images/04.debugging-rete/06.png}
+    \includegraphics[width=0.1\linewidth]{images/04.debugging-rete/06.png}
 \end{center}
 
 Finito il processo si potrà vedere visivamente il percorso del pacchetto, nel caso si voglia velocizzare il processo si può cliccare sul bottone Capture/Forward (o Fast Forward) presente sulla ,barra gialla in basso, il quale che velocizzerà il tutto.
@@ -155,7 +157,7 @@ Finito il processo si potrà vedere visivamente il percorso del pacchetto, nel c
 Un' altra possibilità è quella che un dispositivo invii pacchetti a tutti, per farlo bisogna cliccare nell'altra icona della busta e cliccare sul dispositivo mittente, anche con questa soluzione bisognerà sistemare la event list e si potrà velocizzare il processo con il bottone Capture/Forward.
 
 \begin{center}
-    \includegraphics[width=\linewidth]{images/04.debugging-rete/07.png}
+    \includegraphics[width=0.1\linewidth]{images/04.debugging-rete/07.png}
 \end{center}
 
 La seconda soluzione è consigliata all'inizio visto che è molto probabile che il software vi possa dare errore anche se nella rete non sono presenti errori, si consiglia di fare un paio di tentativi, all’inizio, con la seconda soluzione e poi potrete agire come meglio preferite.
