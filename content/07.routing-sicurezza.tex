@@ -380,7 +380,7 @@ Per poter effettuare la tecnica del tunneling sul programma Cisco Packet Tracer 
         \includegraphics[width=\linewidth]{images/07.routing-sicurezza/tunneling/10.png}
     \end{center}
     \item A questo punto dovranno essere inseriti i seguenti comandi in questo ordine:\par
-    \begin{cmds}{Configuration mode}{cmd:setup-tunneling-1}{Configurazione Tunneling}
+    \begin{fcmds}{Configuration mode}
         \$ ipv6 unicast-routing\\
         \$ interface tunnel 0\\
         \$ ipv6 address 2000::2/64\\
@@ -389,9 +389,9 @@ Per poter effettuare la tecnica del tunneling sul programma Cisco Packet Tracer 
         \$ tunnel destination 192.168.8.218/30\\
         \$ tunnel mode ipv6ip\\
         \$ no shutdown
-    \end{cmds}
+    \end{fcmds}
     \item Ora che il tunnel è stato impostato, configuriamo le porte che verranno utilizzate su questo router:\par
-    \begin{cmds}{Configuration mode}{cmd:setup-tunneling-2}{Configuratione Porte}
+    \begin{fcmds}{Configuration mode}
         \$ interface Gig0/1\\
         \$ ipv6 enable\\
         \$ ipv6 address 1000::1/64\\
@@ -401,10 +401,10 @@ Per poter effettuare la tecnica del tunneling sul programma Cisco Packet Tracer 
         \$ interface Gig0/0\\
         \$ ip address 192.168.8.214 255.255.255.252\\
         \$ no shutdown
-    \end{cmds}
+    \end{fcmds}
     \item Configuriamo ora l’altro router (Tunnel1) incluso nel tunnel che stiamo creando;
     \item Ci rechiamo dunque anche in esso nell’interfaccia “CLI” e inseriamo i seguenti comandi:\par
-    \begin{cmds}{Configuration mode}{cmd:setup-tunneling-3}{Configurazione Tunnel1 altro Router}
+    \begin{fcmds}{Configuration mode}
         \$ ipv6 unicast-routing\\
         \$ interface tunnel 0\\
         \$ ipv6 address 2000::1/64\\
@@ -418,16 +418,16 @@ Per poter effettuare la tecnica del tunneling sul programma Cisco Packet Tracer 
         \$ ipv6 address 3000::1/64\\
         \$ ipv6 rip 5info enable\\
         \$ no shutdown
-    \end{cmds}
+    \end{fcmds}
     \item A questo punto abbiamo bisogno di effettuare l’Ip Route nei due router per rendergli possibile l’instradamento delle informazioni attraverso il tunnel che stiamo creando;
     \item Accediamo dunque al router “Tunneling1” e sempre nella sezione “CLI” digitiamo I seguenti comandi:\par
-    \begin{cmds}{Configuration mode}{cmd:setup-tunneling-4}{Configurazione Routes}
+    \begin{fcmds}{Configuration mode}
         \$ ip route 192.168.8.212 255.255.255.252 2000::2/64
-    \end{cmds}
+    \end{fcmds}
     \item Facciamo la stessa cosa con il router “Tunneling2”:\par
-    \begin{cmds}{Configuration mode}{cmd:setup-tunneling-4}{Configurazione Routes}
+    \begin{fcmds}{Configuration mode}
         \$ ip route 192.168.8.216 255.255.255.252 2000::1/64
-    \end{cmds}
+    \end{fcmds}
     \item Ora avremmo così creato la seguente topologia:\par
     \begin{center}
         \includegraphics[width=\linewidth]{images/07.routing-sicurezza/tunneling/11.png}
