@@ -1,3 +1,13 @@
 \section{Introduzione}
+Questa guida vuole elencare e spiegare i comandi utilizzati nei Router Cisco per configurare reti internet di tipo IPv4 e IPv6 con supporto per i servizi DNS, DHCP, EMAIL e HTTP\@. Verrà inoltre spiegato come garantire la sicurezza della rete e dei dispositivi, come configurere Tunneling e VPN, come configurare uno Switch con più VLAN, come dividere una rete in più sottoreti tramite VLSM e come debuggare i problemi di una rete\@.
+
 \subsection{Ambiente di simulazione}
-\subsection{Sintassi relazione}
+Per lo sviluppo delle reti verrà utilizzato il software Cisco Packet Tracer, disponibile attraverso il sito web \url{https://netacad.com}, tuttavia i comandi che verranno presentati sono identici a quelli presenti nei router fisici Cisco.
+
+\subsection{Blocchi di comandi}
+I router Cisco hanno diverse modalità di inserimento. I comandi mostrati nella guida devono essere eseguiti nel contesto corretto oppure potrebbero non essere riconosciuti. Nella guida verranno utilizzati dei blocchi che specificano la modalità di inserimento nell'angolo in alto a sinistra. Inoltre se necessario un'informazione più dettagliata sarà aggiunta nell'angolo in alto a destra. Un'esempio di blocco di comandi è il seguente:
+
+\begin{cmds}[Dispositivo]{Modalità di inserimento}{cmd:example}{Esempio di un blocco di comandi.}
+    \$ comando uno\\
+    \$ comando due
+\end{cmds}
